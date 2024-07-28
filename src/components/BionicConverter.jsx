@@ -55,17 +55,36 @@ function BionicConverter() {
       "pdfjs-dist/build/pdf.worker.min.js",
       import.meta.url
     ).toString();
-
+  
     try {
       const pdf = await pdfjs.getDocument(content).promise;
       const extractedText = await Promise.all(
-        Array.from({ length: pdf.numPages }, (_, i) => 
-          pdf.getPage(i + 1).then(page => page.getTextContent())
-        )
-      ).then(pages => 
-        pages.flatMap(({ items }) => items.map(item => item.str)).join(' ')
+        Array.from({ length: pdf.numPages }, async (_, i) => {
+          const page = await pdf.getPage(i + 1);
+          const textContent = await page.getTextContent();
+          
+          let lastY;
+          let text = '';
+          
+          for (let item of textContent.items) {
+            if (lastY && lastY - item.transform[5] > 5) {
+              // If the vertical position difference is significant, add a new line
+              text += '\n\n';
+            } else if (text.length > 0 && !text.endsWith(' ')) {
+              // Add space between words on the same line
+              text += ' ';
+            }
+            
+            text += item.str;
+            lastY = item.transform[5];
+          }
+          
+          return text;
+        })
       );
-      setInput(extractedText);
+  
+      const finalText = extractedText.join('\n\n');
+      setInput(finalText);
     } catch (error) {
       console.error("Error occurred while extracting text:", error);
     }
