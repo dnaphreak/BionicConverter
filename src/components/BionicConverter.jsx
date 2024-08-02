@@ -137,61 +137,66 @@ function BionicConverter() {
       <div className="b-container">
         <div className="input-section">
           <label>Input</label>
-          <textarea
-            className="text-container"
-            value={input}
-            placeholder="Paste your text here."
-            onChange={handleInput}
-          />
-          <div className="file-input-container">
-            <input
-              className="file-input"
-              ref={inputRef}
-              onChange={handleFileSelect}
-              type="file"
+          <div className="text-container-wrapper">
+            <textarea
+              className="text-container"
+              value={input}
+              placeholder="Paste your text here."
+              onChange={handleInput}
             />
-            <Button
-              type="button"
-              className="buttons file-button"
-              variant="light"
-              onClick={handleUpload}
-            >
-              Import File
-            </Button>
+            <div className="floating-buttons left">
+              <input
+                className="file-input"
+                ref={inputRef}
+                onChange={handleFileSelect}
+                type="file"
+              />
+              <Button
+                type="button"
+                className="buttons file-button"
+                variant="light"
+                onClick={handleUpload}
+              >
+                Import
+              </Button>
+            </div>
+            <div className="floating-buttons right">
+              <Button
+                className="buttons convert-button"
+                variant="primary"
+                onClick={convertToBionicText}
+              >
+                Convert
+              </Button>
+            </div>
           </div>
           <p id="filetype-text">
             Supported file types: docx, doc, pdf, txt
           </p>
         </div>
         
-        <div className="button-container">
-          <Button
-            className="buttons convert-button"
-            variant="primary"
-            onClick={convertToBionicText}
-          >
-            Convert
-          </Button>
-        </div>
-        
         <div className="output-section">
           <label>Output</label>
-          <div className="text-container">
-            <ReturnBionicText markdown={output} />
-          </div>
-          <PDFDownloadLink
-            document={<DownloadPDF text={originalInput} />}
-            filename="BionicText"
-          >
-            {({ loading }) => (
-              <Button
-                className="buttons download-button"
-                variant="success"
+          <div className="text-container-wrapper">
+            <div className="text-container">
+              <ReturnBionicText markdown={output} />
+            </div>
+            <div className="floating-buttons right">
+              <PDFDownloadLink
+                document={<DownloadPDF text={originalInput} />}
+                filename="BionicText"
               >
-                {loading ? 'Loading PDF File...' : 'Download PDF'}
-              </Button>
-            )}
-          </PDFDownloadLink>
+                {({ loading }) => (
+                  <Button
+                    className="buttons download-button"
+                    variant="success"
+                  >
+                    {loading ? 'Loading...' : 'Download PDF'}
+                  </Button>
+                )}
+              </PDFDownloadLink>
+            </div>
+          </div>
         </div>
       </div>
     </div>
