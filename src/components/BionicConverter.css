@@ -43,6 +43,14 @@ body {
   gap: 0.5rem;
 }
 
+.input-section .floating-buttons {
+  padding-bottom: 8px; /* Adds padd ing to the bottom for input-section .floating-buttons */
+}
+
+.text-container-wrapper {
+  position: relative;
+}
+
 .text-container {
   background-color: var(--text-area-bg);
   width: 100%;
@@ -56,15 +64,17 @@ body {
   resize: vertical;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
+.floating-buttons {
+  position: absolute;
+  bottom: 10px;
 }
 
-.file-input-container {
-  display: flex;
-  align-items: center;
+.floating-buttons.left {
+  left: 10px;
+}
+
+.floating-buttons.right {
+  right: 10px;
 }
 
 .file-input {
@@ -88,10 +98,10 @@ label {
 }
 
 .buttons {
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -107,6 +117,21 @@ label {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.file-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.convert-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.download-button {
+  background-color: #28a745;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .b-container {
     flex-direction: row;
@@ -116,11 +141,6 @@ label {
   .input-section,
   .output-section {
     flex: 1 1 45%;
-  }
-
-  .button-container {
-    flex: 1 1 100%;
-    order: 2;
   }
 
   .text-container {
@@ -142,6 +162,7 @@ label {
   }
 
   .buttons {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
   }
 }
