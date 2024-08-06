@@ -5,22 +5,22 @@
         "homepage": "https://github.com/dnaphreak/BionicConverter/blob/master/README.md",
         "dependencies": {
                 "@react-pdf/renderer": "3.1.12",
-                "@testing-library/jest-dom": "^5.16.5",
-                "@testing-library/react": "^13.4.0",
-                "@testing-library/user-event": "^13.5.0",
+                "@testing-library/jest-dom": "^6.4.8",
+                "@testing-library/react": "^16.0.0",
+                "@testing-library/user-event": "^14.5.2",
                 "@xmldom/xmldom": "^0.8.10",
                 "bootstrap": "^5.3.3",
                 "pdf-lib": "^1.17.1",
-                "pdfjs-dist": "^3.6.172",
+                "pdfjs-dist": "^4.5.136",
                 "pizzip": "^3.1.7",
-                "react": "^18.2.0",
-                "react-bootstrap": "^2.7.4",
-                "react-bootstrap-icons": "^1.10.3",
-                "react-dom": "^18.2.0",
+                "react": "^18.3.1",
+                "react-bootstrap": "^2.10.4",
+                "react-bootstrap-icons": "^1.11.4",
+                "react-dom": "^18.3.1",
                 "react-pdf": "^7.1.2",
                 "react-scripts": "5.0.1",
                 "remarkable": "^2.0.1",
-                "web-vitals": "^2.1.4"
+                "web-vitals": "^4.2.2"
         },
         "scripts": {
                 "predeploy": "npm run build",
@@ -51,7 +51,7 @@
         "devDependencies": {
                 "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
                 "eslint-config-react-app": "^7.0.1",
-                "gh-pages": "^5.0.0",
-                "jest-editor-support": "^31.0.1"
+                "gh-pages": "^6.1.1",
+                "jest-editor-support": "^31.1.2"
         }
 }
