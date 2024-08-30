@@ -35,3 +35,5 @@ yarn-error.log*
 # Ignore any files in /bin and /obj Folders
 **/bin/*
 **/obj/*
+
+claude-engineer/
